@@ -93,8 +93,8 @@ int main(void)
   /* USER CODE BEGIN 2 */
 
   /* USER CODE END 2 */
-  HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, SET);  // Đèn đỏ sáng
-  	  HAL_GPIO_WritePin(LED_YELLOW_GPIO_Port, LED_YELLOW_Pin, SET);
+//  HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, SET);  // Đèn đỏ sáng
+//  	  HAL_GPIO_WritePin(LED_YELLOW_GPIO_Port, LED_YELLOW_Pin, SET);
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
