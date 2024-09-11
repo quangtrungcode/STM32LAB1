@@ -111,7 +111,7 @@ int main(void)
       int counter=0;
   while (1)
   {
-	  HAL_GPIO_WritePin(GPIOA, LED_PINS, SET);
+
 	  if(counter>=12) counter=0;
 	  	  TurnOnEveryClock(counter++);
 	  	  HAL_Delay(1000);
