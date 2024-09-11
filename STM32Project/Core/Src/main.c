@@ -98,15 +98,19 @@ int main(void)
       	                          ,LED4_Pin,LED5_Pin,LED6_Pin,LED7_Pin
       	                          ,LED8_Pin,LED9_Pin,LED10_Pin,LED11_Pin};
   void clearAllClock(){
-	  for(int i=0;i<12;i++){
-		  HAL_GPIO_WritePin(segmentPorts[i], segmentPins[i], SET);
-	  }
+//	  for(int i=0;i<12;i++){
+//		  HAL_GPIO_WritePin(segmentPorts[i], segmentPins[i], SET);
+//	  }
+	  HAL_GPIO_WritePin(GPIOA, LED_PINS, SET);
   }
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	  HAL_GPIO_WritePin(GPIOA, LED_PINS, RESET);
+	  HAL_Delay(1000);
 	  clearAllClock();
+	  HAL_Delay(1000);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
