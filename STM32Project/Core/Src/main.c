@@ -113,7 +113,7 @@ int main(void)
   {
 	  if(counter>=12) counter=0;
 	  display7SEG(counter++);
-	  HAL_Delay(1500);
+	  HAL_Delay(1000);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
