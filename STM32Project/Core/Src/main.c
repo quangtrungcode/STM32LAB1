@@ -95,16 +95,6 @@ int main(void)
   	  HAL_GPIO_WritePin(LED_1GIPO_Port, LED_1Pin, RESET);
   	  HAL_GPIO_WritePin(LED_2GIPO_Port, LED_2Pin, RESET);
     }
-  settrafficlight1(LED_RED1_GPIO_Port, LED_RED1_Pin, LED_YELLOW1_GPIO_Port, LED_YELLOW1_Pin, LED_GREEN1_GPIO_Port, LED_GREEN1_Pin);
-  settrafficlight1(LED_GREEN2_GPIO_Port, LED_GREEN2_Pin, LED_RED2_GPIO_Port, LED_RED2_Pin, LED_YELLOW2_GPIO_Port, LED_YELLOW2_Pin) ;
-  HAL_Delay(3000);
-  settrafficlight1(LED_YELLOW2_GPIO_Port, LED_YELLOW2_Pin, LED_GREEN2_GPIO_Port, LED_GREEN2_Pin, LED_RED2_GPIO_Port, LED_RED2_Pin);
-  HAL_Delay(2000);
-  settrafficlight1(LED_RED2_GPIO_Port, LED_RED2_Pin, LED_YELLOW2_GPIO_Port, LED_YELLOW2_Pin, LED_GREEN2_GPIO_Port, LED_GREEN2_Pin);
-  settrafficlight1(LED_GREEN1_GPIO_Port, LED_GREEN1_Pin, LED_RED1_GPIO_Port, LED_RED1_Pin, LED_YELLOW1_GPIO_Port, LED_YELLOW1_Pin);
-  HAL_Delay(3000);
-  settrafficlight1(LED_YELLOW1_GPIO_Port, LED_YELLOW1_Pin, LED_GREEN1_GPIO_Port, LED_GREEN1_Pin, LED_RED1_GPIO_Port, LED_RED1_Pin);
-  HAL_Delay(2000);
 
   GPIO_TypeDef* segmentPorts[2][NUM_SEGMENTS] = {
       {a1_GPIO_Port, b1_GPIO_Port, c1_GPIO_Port, d1_GPIO_Port, e1_GPIO_Port, f1_GPIO_Port, g1_GPIO_Port},  // LED 1
@@ -135,7 +125,7 @@ int main(void)
   void display7SEG(int ledNum, int num) {
       for (int i = 0; i < NUM_SEGMENTS; i++) {
           HAL_GPIO_WritePin(segmentPorts[ledNum][i], segmentPins[ledNum][i],
-                            (segmentMap[num] & (0b10000000 >> i)) ? RESET : _SET);
+                            (segmentMap[num] & (0b10000000 >> i)) ? RESET : SET);
       }
   }
 
@@ -143,42 +133,49 @@ int main(void)
   int counteryellow=2;
   int countergreen=3;
   void process(){
-	  for(int i=5;i>=0;i--){
 	  settrafficlight1(LED_RED1_GPIO_Port, LED_RED1_Pin, LED_YELLOW1_GPIO_Port, LED_YELLOW1_Pin, LED_GREEN1_GPIO_Port, LED_GREEN1_Pin);
-	  if(counterred<=2){
-		  settrafficlight1(LED_YELLOW2_GPIO_Port, LED_YELLOW2_Pin, LED_GREEN2_GPIO_Port, LED_GREEN2_Pin, LED_RED2_GPIO_Port, LED_RED2_Pin);
-	      display7SEG(1, counteryellow--);
-	      HAL_Delay(1000);
+	  settrafficlight1(LED_GREEN2_GPIO_Port, LED_GREEN2_Pin, LED_RED2_GPIO_Port, LED_RED2_Pin, LED_YELLOW2_GPIO_Port, LED_YELLOW2_Pin) ;
+      for(int i=5;i>=2;i--){
+    	  display7SEG(0, counterred--);
+    	  display7SEG(1, countergreen--);
+    	  if(i>2) HAL_Delay(1000);
+      }
+      settrafficlight1(LED_YELLOW2_GPIO_Port, LED_YELLOW2_Pin, LED_GREEN2_GPIO_Port, LED_GREEN2_Pin, LED_RED2_GPIO_Port, LED_RED2_Pin);
+	  for(int i=2;i>=0;i--){
+		  display7SEG(0, counterred--);
+		  display7SEG(1, counteryellow--);
+		  if(i>0) HAL_Delay(1000);
+		  else{
+			  counterred=5;
+			  counteryellow=2;
+			  countergreen=3;
+		  }
 	  }
-	  	    settrafficlight1(LED_GREEN2_GPIO_Port, LED_GREEN2_Pin, LED_RED2_GPIO_Port, LED_RED2_Pin, LED_YELLOW2_GPIO_Port, LED_YELLOW2_Pin) ;
 
-	  	    	display7SEG(0, counterred--);
-	  	    	display7SEG(1, countergreen--);
-	  	    HAL_Delay(1000);
+	  settrafficlight1(LED_RED2_GPIO_Port, LED_RED2_Pin, LED_YELLOW2_GPIO_Port, LED_YELLOW2_Pin, LED_GREEN2_GPIO_Port, LED_GREEN2_Pin);
+	  settrafficlight1(LED_GREEN1_GPIO_Port, LED_GREEN1_Pin, LED_RED1_GPIO_Port, LED_RED1_Pin, LED_YELLOW1_GPIO_Port, LED_YELLOW1_Pin);
+	  for(int i=5;i>=2;i--){
+	      	  display7SEG(1, counterred--);
+	      	  display7SEG(0, countergreen--);
+	      	  if(i>2) HAL_Delay(1000);
+	  }
+	  settrafficlight1(LED_YELLOW1_GPIO_Port, LED_YELLOW1_Pin, LED_GREEN1_GPIO_Port, LED_GREEN1_Pin, LED_RED1_GPIO_Port, LED_RED1_Pin);
+	  for(int i=2;i>=0;i--){
+		  	  display7SEG(1, counterred--);
+	  		  display7SEG(0, counteryellow--);
+	  		  if(i>0) HAL_Delay(1000);
+	  		  else{
+	  			counterred=5;
+	  			counteryellow=2;
+	  			countergreen=3;
+	  		  }
 	  }
   }
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	    settrafficlight1(LED_RED1_GPIO_Port, LED_RED1_Pin, LED_YELLOW1_GPIO_Port, LED_YELLOW1_Pin, LED_GREEN1_GPIO_Port, LED_GREEN1_Pin);
-	    settrafficlight1(LED_GREEN2_GPIO_Port, LED_GREEN2_Pin, LED_RED2_GPIO_Port, LED_RED2_Pin, LED_YELLOW2_GPIO_Port, LED_YELLOW2_Pin) ;
-
-	    	display7SEG(0, counterred--);
-	    	display7SEG(1, countergreen--);
-	    HAL_Delay(1000);
-	    continue;
-	    HAL_Delay(3000);
-	    settrafficlight1(LED_YELLOW2_GPIO_Port, LED_YELLOW2_Pin, LED_GREEN2_GPIO_Port, LED_GREEN2_Pin, LED_RED2_GPIO_Port, LED_RED2_Pin);
-	    HAL_Delay(2000);
-
-
-
-	    settrafficlight1(LED_RED2_GPIO_Port, LED_RED2_Pin, LED_YELLOW2_GPIO_Port, LED_YELLOW2_Pin, LED_GREEN2_GPIO_Port, LED_GREEN2_Pin);
-	    settrafficlight1(LED_GREEN1_GPIO_Port, LED_GREEN1_Pin, LED_RED1_GPIO_Port, LED_RED1_Pin, LED_YELLOW1_GPIO_Port, LED_YELLOW1_Pin);
-	    HAL_Delay(3000);
-	    settrafficlight1(LED_YELLOW1_GPIO_Port, LED_YELLOW1_Pin, LED_GREEN1_GPIO_Port, LED_GREEN1_Pin, LED_RED1_GPIO_Port, LED_RED1_Pin);
-	    HAL_Delay(2000);
+	    process();
 
     /* USER CODE END WHILE */
 
