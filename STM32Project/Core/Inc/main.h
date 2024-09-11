@@ -27,7 +27,7 @@
 extern "C" {
 #endif
 
-#define LED_PINS (LE0_Pin,LED1_Pin|LED2_Pin|LED3_Pin|LED4_Pin|LED5_Pin|LED6_Pin|LED7_Pin|LED8_Pin|LED9_Pin|LED10_Pin|LED11_Pin)
+#define LED_PINS (LED0_Pin|LED1_Pin|LED2_Pin|LED3_Pin|LED4_Pin|LED5_Pin|LED6_Pin|LED7_Pin|LED8_Pin|LED9_Pin|LED10_Pin|LED11_Pin)
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f1xx_hal.h"
 
