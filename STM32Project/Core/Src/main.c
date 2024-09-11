@@ -138,32 +138,18 @@ int main(void)
       for(int i=5;i>=2;i--){
     	  display7SEG(0, counterred--);
     	  display7SEG(1, countergreen--);
-    	 // if(i>2) HAL_Delay(1000);
     	  HAL_Delay(1000);
       }
-     // counterred++;
       settrafficlight1(LED_YELLOW2_GPIO_Port, LED_YELLOW2_Pin, LED_GREEN2_GPIO_Port, LED_GREEN2_Pin, LED_RED2_GPIO_Port, LED_RED2_Pin);
 	  for(int i=2;i>=0;i--){
-		  if(i<0){
-		  			  counterred=6;
-		  			  counteryellow=2;
-		  			  countergreen=3;
-		  			  break;
-		  		  }
 		  display7SEG(0, counterred--);
 		  display7SEG(1, counteryellow--);
-		 // if(i>0) HAL_Delay(1000);
 		  HAL_Delay(1000);
-//		  if(i<=0){
-//			  counterred=5;
-//			  counteryellow=2;
-//			  countergreen=3;
-//		  }
-//		  else{
-//			  counterred=5;
-//			  counteryellow=2;
-//			  countergreen=3;
-//		  }
+		  if(i<=0){
+			  counterred=6;
+			  counteryellow=2;
+			  countergreen=3;
+		  }
 	  }
 
 	  settrafficlight1(LED_RED2_GPIO_Port, LED_RED2_Pin, LED_YELLOW2_GPIO_Port, LED_YELLOW2_Pin, LED_GREEN2_GPIO_Port, LED_GREEN2_Pin);
@@ -171,32 +157,18 @@ int main(void)
 	  for(int i=5;i>=2;i--){
 	      	  display7SEG(1, counterred--);
 	      	  display7SEG(0, countergreen--);
-	      	 // if(i>2) HAL_Delay(1000);
 	      	HAL_Delay(1000);
 	  }
-	 // counterred++;
 	  settrafficlight1(LED_YELLOW1_GPIO_Port, LED_YELLOW1_Pin, LED_GREEN1_GPIO_Port, LED_GREEN1_Pin, LED_RED1_GPIO_Port, LED_RED1_Pin);
 	  for(int i=2;i>=0;i--){
-	  		if(i<0){
+		  	  display7SEG(1, counterred--);
+	  		  display7SEG(0, counteryellow--);
+	  		HAL_Delay(1000);
+	  		if(i<=0){
 	  			counterred=6;
 	  			counteryellow=2;
 	  			countergreen=3;
-	  			break;
 	  		}
-		  	  display7SEG(1, counterred--);
-	  		  display7SEG(0, counteryellow--);
-//	  		  if(i>0) HAL_Delay(1000);
-//	  		  else{
-//	  			counterred=5;
-//	  			counteryellow=2;
-//	  			countergreen=3;
-//	  		  }
-	  		HAL_Delay(1000);
-//	  		if(i<=0){
-//	  			counterred=5;
-//	  			counteryellow=2;
-//	  			countergreen=3;
-//	  		}
 	  }
   }
   /* Infinite loop */
