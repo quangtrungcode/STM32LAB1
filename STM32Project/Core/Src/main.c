@@ -100,7 +100,7 @@ int main(void)
       	                          ,LED8_Pin,LED9_Pin,LED10_Pin,LED11_Pin}; // LED 1
              // LED 2
 
-      void TurnOnEveryClock(int num) {
+      void setNumberOnClock(int num) {
             for (int i = 0; i < 12; i++) {
           	  if(i==num)HAL_GPIO_WritePin(segmentPorts[num], segmentPins[num], RESET);
           	  else HAL_GPIO_WritePin(segmentPorts[i], segmentPins[i], SET);
@@ -113,7 +113,7 @@ int main(void)
   {
 
 	  if(counter>=12) counter=0;
-	  	  TurnOnEveryClock(counter++);
+	  setNumberOnClock(counter++);
 	  	  HAL_Delay(1000);
     /* USER CODE END WHILE */
 

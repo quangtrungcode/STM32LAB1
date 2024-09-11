@@ -1,4 +1,4 @@
-main.c:103:12:TurnOnEveryClock	32	static
+main.c:103:12:setNumberOnClock	32	static
 main.c:64:5:main	96	static
 main.c:129:6:SystemClock_Config	72	static
 main.c:165:13:MX_GPIO_Init	32	static
