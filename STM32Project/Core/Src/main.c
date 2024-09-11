@@ -88,11 +88,80 @@ int main(void)
   /* USER CODE BEGIN 2 */
 
   /* USER CODE END 2 */
+  GPIO_TypeDef* segmentPorts[12] = {
+            LED0_GPIO_Port, LED1_GPIO_Port,LED2_GPIO_Port,LED3_GPIO_Port,LED4_GPIO_Port,LED5_GPIO_Port,LED6_GPIO_Port,LED7_GPIO_Port,LED8_GPIO_Port,LED9_GPIO_Port,LED10_GPIO_Port,LED11_GPIO_Port};  // LED 1
+               // LED 2
 
+
+        // Mảng lưu chân GPIO của từng đoạn cho 2 LED
+        uint16_t segmentPins[12]={
+        	LED0_Pin,LED1_Pin,LED2_Pin,LED3_Pin
+        	                          ,LED4_Pin,LED5_Pin,LED6_Pin,LED7_Pin
+        	                          ,LED8_Pin,LED9_Pin,LED10_Pin,LED11_Pin};
+        void setNumberOnClock(int num) {
+                    for (int i = 0; i < 12; i++) {
+                  	  if(i==num)HAL_GPIO_WritePin(segmentPorts[num], segmentPins[num], RESET);
+                  	  else HAL_GPIO_WritePin(segmentPorts[i], segmentPins[i], SET);
+                    }
+                }
+        void setClock(int num){
+        	HAL_GPIO_WritePin(segmentPorts[num], segmentPins[num], RESET);
+        }
+        void clearClock(int num){
+        	HAL_GPIO_WritePin(segmentPorts[num], segmentPins[num], SET);
+        }
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+
+  int hour=0;
+  int minute=0;
+  int second=0;
+
+  setNumberOnClock(0);
+ // int counter=0;
   while (1)
   {
+
+	  second++;
+	  if(second>=60){
+		  second=0;
+		  minute++;
+		  HAL_Delay(500);
+		  setClock(second);
+		  clearClock(11);
+		//  HAL_Delay(1000);
+
+
+		  //HAL_Delay(1000);
+	  }
+	  if(second%5==0&&second!=0){
+		  HAL_Delay(500);
+		  setClock(second/5);
+		 if(second/5-1!=minute&&second/5-1!=hour){
+		  clearClock(second/5-1);
+		 }
+		  //setNumberOnClock(minute/5);
+	  }
+	  if(minute>=60){
+		  minute=0;
+		  hour++;
+		  HAL_Delay(500);
+		  setClock(minute);
+		  setClock(hour);
+	  }
+	  if(minute%5==0&&minute!=0){
+		  HAL_Delay(500);
+		  setClock(minute/5);
+		  if(minute/5-1!=hour&&minute/5-1!=second){
+		  clearClock(minute/5-1);
+		 }
+	  }
+	  if(hour>=12){
+		  hour=0;
+		  setClock(hour);
+	  }
+
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
