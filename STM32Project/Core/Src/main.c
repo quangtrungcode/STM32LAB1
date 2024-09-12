@@ -113,46 +113,51 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 
+ // int hour=0;
+ // int minute=0;
+  int second=0;
   int hour=0;
   int minute=0;
-  int second=0;
-
   setNumberOnClock(0);
  // int counter=0;
   while (1)
   {
 	  second++;
-	      if (second >= 60) {
-	          second = 0;
-	          minute++;
+	  	      if (second >= 60) {
+	  	          second = 0;
+	  	          minute++;
 
-	          // Update minute LED
-	          setClock((minute / 5+12)%12);
-              if(((minute / 5+11)%12)!=hour) clearClock(((minute / 5+11)%12));
-	          // Wrap-around for minutes
-	          if (minute >= 60) {
-	              minute = 0;
-	              hour++;
-	              setClock((hour+12)%12);  // Update hour LED
-	              if((hour+11)%12!=0) clearClock((hour+11)%12);
-	              // Wrap-around for hours
-	              if (hour >= 12) {
-	                  hour = 0;
-	              }
-	          }
-	      }
+	  	          // Update minute LED
+	  	          setClock((minute / 5+12)%12);
+	                if(((minute / 5+11)%12)!=hour) clearClock(((minute / 5+11)%12));
+	  	          // Wrap-around for minutes
+	  	          if (minute >= 60) {
+	  	              minute = 0;
+	  	              hour++;
+	  	              setClock((hour+12)%12);  // Update hour LED
+	  	              if((hour+11)%12!=0) clearClock((hour+11)%12);
+	  	              // Wrap-around for hours
+	  	              if (hour >= 12) {
+	  	                  hour = 0;
+	  	              }
+	  	          }
+	  	      }
 
-	      // Update second LED
-	      setClock((second / 5+12)%12);
-	      if(((second / 5+11)%12)!=hour&&((second / 5+11)%12)!=minute) clearClock(((second / 5+11)%12));
+	  	      // Update second LED
+	  	      setClock((second / 5+12)%12);
+	  	      if(((second / 5+11)%12)!=hour&&((second / 5+11)%12)!=(minute/5+12)%12) clearClock(((second / 5+11)%12));
 
-	      // Ensure all three hands are lit at the same time
-	     // setClock((minute / 5+12)%12);  // Light up minute hand
+	  	      // Ensure all three hands are lit at the same time
+	  	     // setClock((minute / 5+12)%12);  // Light up minute hand
 
-	     // setClock(hour);        // Light up hour hand
+	  	     // setClock(hour);        // Light up hour hand
 
-	      // Delay for 1 second (or any suitable time for simulation)
-	      HAL_Delay(100);  // Ad
+	  	      // Delay for 1 second (or any suitable time for simulation)
+	  	      HAL_Delay(100);  // Ad
+
+
+
+	       // Ad
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
