@@ -128,8 +128,10 @@ int main(void)
 		  minute++;
 		  HAL_Delay(500);
 		  setClock(second);
+		  if(minute!=11&&hour!=11){
 		  clearClock(11);
-		//  HAL_Delay(1000);
+		  }
+		  HAL_Delay(500);
 
 
 		  //HAL_Delay(1000);
@@ -145,9 +147,8 @@ int main(void)
 	  if(minute>=60){
 		  minute=0;
 		  hour++;
-		  HAL_Delay(500);
 		  setClock(minute);
-		  setClock(hour);
+		  HAL_Delay(500);
 	  }
 	  if(minute%5==0&&minute!=0){
 		  HAL_Delay(500);
@@ -159,6 +160,13 @@ int main(void)
 	  if(hour>=12){
 		  hour=0;
 		  setClock(hour);
+		  clearClock(11);
+	  }
+	  if(hour<12&&hour>0){
+		  setClock(hour);
+		  if(hour-1!=minute&&hour-1!=second){
+		  clearClock(hour-1);
+		  }
 	  }
 
 
