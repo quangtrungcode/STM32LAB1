@@ -121,55 +121,38 @@ int main(void)
  // int counter=0;
   while (1)
   {
-
 	  second++;
-	  if(second>=60){
-		  second=0;
-		  minute++;
-		  HAL_Delay(500);
-		  setClock(second);
-		  if(minute!=11&&hour!=11){
-		  clearClock(11);
-		  }
-		  HAL_Delay(500);
+	      if (second >= 60) {
+	          second = 0;
+	          minute++;
 
+	          // Update minute LED
+	          setClock((minute / 5+12)%12);
+              if(((minute / 5+11)%12)!=hour) clearClock(((minute / 5+11)%12));
+	          // Wrap-around for minutes
+	          if (minute >= 60) {
+	              minute = 0;
+	              hour++;
+	              setClock((hour+12)%12);  // Update hour LED
+	              if((hour+11)%12!=0) clearClock((hour+11)%12);
+	              // Wrap-around for hours
+	              if (hour >= 12) {
+	                  hour = 0;
+	              }
+	          }
+	      }
 
-		  //HAL_Delay(1000);
-	  }
-	  if(second%5==0&&second!=0){
-		  HAL_Delay(500);
-		  setClock(second/5);
-		 if(second/5-1!=minute&&second/5-1!=hour){
-		  clearClock(second/5-1);
-		 }
-		  //setNumberOnClock(minute/5);
-	  }
-	  if(minute>=60){
-		  minute=0;
-		  hour++;
-		  setClock(minute);
-		  HAL_Delay(500);
-	  }
-	  if(minute%5==0&&minute!=0){
-		  HAL_Delay(500);
-		  setClock(minute/5);
-		  if(minute/5-1!=hour&&minute/5-1!=second){
-		  clearClock(minute/5-1);
-		 }
-	  }
-	  if(hour>=12){
-		  hour=0;
-		  setClock(hour);
-		  clearClock(11);
-	  }
-	  if(hour<12&&hour>0){
-		  setClock(hour);
-		  if(hour-1!=minute&&hour-1!=second){
-		  clearClock(hour-1);
-		  }
-	  }
+	      // Update second LED
+	      setClock((second / 5+12)%12);
+	      if(((second / 5+12)%12-1)!=hour&&((second / 5+12)%12-1)!=minute) clearClock(((second / 5+12)%12-1));
 
+	      // Ensure all three hands are lit at the same time
+	     // setClock((minute / 5+12)%12);  // Light up minute hand
 
+	     // setClock(hour);        // Light up hour hand
+
+	      // Delay for 1 second (or any suitable time for simulation)
+	      HAL_Delay(100);  // Ad
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
