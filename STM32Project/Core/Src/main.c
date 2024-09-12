@@ -98,27 +98,34 @@ int main(void)
         	LED0_Pin,LED1_Pin,LED2_Pin,LED3_Pin
         	                          ,LED4_Pin,LED5_Pin,LED6_Pin,LED7_Pin
         	                          ,LED8_Pin,LED9_Pin,LED10_Pin,LED11_Pin};
-        void setNumberOnClock(int num) {
-                    for (int i = 0; i < 12; i++) {
-                  	  if(i==num)HAL_GPIO_WritePin(segmentPorts[num], segmentPins[num], RESET);
-                  	  else HAL_GPIO_WritePin(segmentPorts[i], segmentPins[i], SET);
-                    }
-                }
+//        void setNumberOnClock(int num) {
+//                    for (int i = 0; i < 12; i++) {
+//                  	  if(i==num)HAL_GPIO_WritePin(segmentPorts[num], segmentPins[num], RESET);
+//                  	  else HAL_GPIO_WritePin(segmentPorts[i], segmentPins[i], SET);
+//                    }
+//                }
         void setClock(int num){
         	HAL_GPIO_WritePin(segmentPorts[num], segmentPins[num], RESET);
         }
         void clearClock(int num){
         	HAL_GPIO_WritePin(segmentPorts[num], segmentPins[num], SET);
         }
+        void setClockBegin(int hour,int minute,int second){
+        	HAL_GPIO_WritePin(segmentPorts[hour], segmentPins[hour], RESET);
+        if(minute%5==0)	HAL_GPIO_WritePin(segmentPorts[minute/5], segmentPins[minute/5], RESET);
+        if(second%5==0)	HAL_GPIO_WritePin(segmentPorts[second/5], segmentPins[second/5], RESET);
+        HAL_Delay(2000);
+        }
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 
  // int hour=0;
  // int minute=0;
-  int second=0;
-  int hour=0;
-  int minute=0;
-  setNumberOnClock(0);
+  int second=59;
+  int hour=1;
+  int minute=59;
+  //setNumberOnClock(0);
+  setClockBegin(hour,minute,second);
  // int counter=0;
   while (1)
   {
@@ -126,38 +133,21 @@ int main(void)
 	  	      if (second >= 60) {
 	  	          second = 0;
 	  	          minute++;
-
-	  	          // Update minute LED
 	  	          setClock((minute / 5+12)%12);
 	                if(((minute / 5+11)%12)!=hour) clearClock(((minute / 5+11)%12));
-	  	          // Wrap-around for minutes
 	  	          if (minute >= 60) {
 	  	              minute = 0;
 	  	              hour++;
-	  	              setClock((hour+12)%12);  // Update hour LED
+	  	              setClock((hour+12)%12);
 	  	              if((hour+11)%12!=0) clearClock((hour+11)%12);
-	  	              // Wrap-around for hours
 	  	              if (hour >= 12) {
 	  	                  hour = 0;
 	  	              }
 	  	          }
 	  	      }
-
-	  	      // Update second LED
 	  	      setClock((second / 5+12)%12);
-	  	      if(((second / 5+11)%12)!=hour&&((second / 5+11)%12)!=(minute/5+12)%12) clearClock(((second / 5+11)%12));
-
-	  	      // Ensure all three hands are lit at the same time
-	  	     // setClock((minute / 5+12)%12);  // Light up minute hand
-
-	  	     // setClock(hour);        // Light up hour hand
-
-	  	      // Delay for 1 second (or any suitable time for simulation)
-	  	      HAL_Delay(100);  // Ad
-
-
-
-	       // Ad
+	  if(((second / 5+11)%12)!=hour&&((second / 5+11)%12)!=(minute/5+12)%12) clearClock(((second / 5+11)%12));
+	  	      HAL_Delay(100);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -215,7 +205,7 @@ static void MX_GPIO_Init(void)
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOA, LED0_Pin|LED1_Pin|LED2_Pin|LED3_Pin
                           |LED4_Pin|LED5_Pin|LED6_Pin|LED7_Pin
-                          |LED8_Pin|LED9_Pin|LED10_Pin|LED11_Pin, GPIO_PIN_RESET);
+                          |LED8_Pin|LED9_Pin|LED10_Pin|LED11_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pins : LED0_Pin LED1_Pin LED2_Pin LED3_Pin
                            LED4_Pin LED5_Pin LED6_Pin LED7_Pin
