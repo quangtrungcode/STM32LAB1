@@ -144,7 +144,7 @@ int main(void)
 
 	      // Update second LED
 	      setClock((second / 5+12)%12);
-	      if(((second / 5+12)%12-1)!=hour&&((second / 5+12)%12-1)!=minute) clearClock(((second / 5+12)%12-1));
+	      if(((second / 5+11)%12)!=hour&&((second / 5+11)%12)!=minute) clearClock(((second / 5+11)%12));
 
 	      // Ensure all three hands are lit at the same time
 	     // setClock((minute / 5+12)%12);  // Light up minute hand
