@@ -26,7 +26,7 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
-#define NUM_SEGMENTS 7
+
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f1xx_hal.h"
 
