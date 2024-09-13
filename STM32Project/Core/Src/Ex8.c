@@ -12,8 +12,5 @@ GPIO_TypeDef* segmentPorts[12] = {
 uint16_t segmentPins[12]={LED0_Pin,LED1_Pin,LED2_Pin,LED3_Pin,LED4_Pin,LED5_Pin,LED6_Pin,LED7_Pin
       	                          ,LED8_Pin,LED9_Pin,LED10_Pin,LED11_Pin};
 void setNumberOnClock(int num) {
-            for (int i = 0; i < 12; i++) {
-          	  if(i==num)HAL_GPIO_WritePin(segmentPorts[num], segmentPins[num], RESET);
-          	  else HAL_GPIO_WritePin(segmentPorts[i], segmentPins[i], SET);
-            }
+          	  HAL_GPIO_WritePin(segmentPorts[num], segmentPins[num], RESET);
         }
