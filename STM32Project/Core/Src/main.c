@@ -19,7 +19,7 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-
+#include "Ex8.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -88,27 +88,18 @@ int main(void)
   /* USER CODE BEGIN 2 */
 
   /* USER CODE END 2 */
-  GPIO_TypeDef* segmentPorts[12] = {
-          LED0_GPIO_Port, LED1_GPIO_Port,LED2_GPIO_Port,LED3_GPIO_Port,LED4_GPIO_Port,LED5_GPIO_Port,LED6_GPIO_Port,LED7_GPIO_Port,LED8_GPIO_Port,LED9_GPIO_Port,LED10_GPIO_Port,LED11_GPIO_Port};  // LED 1
+
              // LED 2
 
 
       // Mảng lưu chân GPIO của từng đoạn cho 2 LED
-      uint16_t segmentPins[12]={
-      	LED0_Pin,LED1_Pin,LED2_Pin,LED3_Pin
-      	                          ,LED4_Pin,LED5_Pin,LED6_Pin,LED7_Pin
-      	                          ,LED8_Pin,LED9_Pin,LED10_Pin,LED11_Pin}; // LED 1
+
              // LED 2
 
-      void setNumberOnClock(int num) {
-            for (int i = 0; i < 12; i++) {
-          	  if(i==num)HAL_GPIO_WritePin(segmentPorts[num], segmentPins[num], RESET);
-          	  else HAL_GPIO_WritePin(segmentPorts[i], segmentPins[i], SET);
-            }
-        }
+
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-      int counter=0;
+
   while (1)
   {
 
