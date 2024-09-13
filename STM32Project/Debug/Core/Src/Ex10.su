@@ -1,0 +1,3 @@
+Ex10.c:15:6:setClock	16	static
+Ex10.c:18:6:clearClock	16	static
+Ex10.c:21:6:setClockBegin	24	static
