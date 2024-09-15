@@ -103,7 +103,7 @@ int main(void)
 	  	          second = 0;
 	  	          minute++;
 	  	          setClock((minute / 5+12)%12);
-	                if(((minute / 5+11)%12)!=hour) clearClock(((minute / 5+11)%12));
+	                if(((minute / 5+11)%12)!=hour&&((minute / 5+11)%12)!=second) clearClock(((minute / 5+11)%12));
 	  	          if (minute >= 60) {
 	  	              minute = 0;
 	  	              hour++;
