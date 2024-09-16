@@ -19,10 +19,10 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "Ex10.h"
+
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "Ex10.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -98,24 +98,7 @@ int main(void)
   setClockBegin(hour,minute,second);
   while (1)
   {
-	  second++;
-	  	      if (second >= 60) {
-	  	          second = 0;
-	  	          minute++;
-	  	          setClock((minute / 5+12)%12);
-	                if(((minute / 5+11)%12)!=hour&&((minute / 5+11)%12)!=second) clearClock(((minute / 5+11)%12));
-	  	          if (minute >= 60) {
-	  	              minute = 0;
-	  	              hour++;
-	  	              setClock((hour+12)%12);
-	  	              if((hour+11)%12!=0) clearClock((hour+11)%12);
-	  	              if (hour >= 12) {
-	  	                  hour = 0;
-	  	              }
-	  	          }
-	  	      }
-	  	      setClock((second / 5+12)%12);
-	  if(((second / 5+11)%12)!=hour&&((second / 5+11)%12)!=(minute/5+12)%12) clearClock(((second / 5+11)%12));
+	  Ex10_run();
 	  	      HAL_Delay(100);
     /* USER CODE END WHILE */
 
