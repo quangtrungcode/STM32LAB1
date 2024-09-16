@@ -19,10 +19,10 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "Ex6.h"
+
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "Ex6.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -102,8 +102,9 @@ int main(void)
 
   while (1)
   {
-	  if(counter>=12) counter=0;
-	  TurnOnEveryClock(counter++);
+	 // if(counter>=12) counter=0;
+	 // TurnOnEveryClock(counter++);
+	  Ex6_run();
 	  HAL_Delay(1000);
     /* USER CODE END WHILE */
 
@@ -162,7 +163,7 @@ static void MX_GPIO_Init(void)
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOA, LED0_Pin|LED1_Pin|LED2_Pin|LED3_Pin
                           |LED4_Pin|LED5_Pin|LED6_Pin|LED7_Pin
-                          |LED8_Pin|LED9_Pin|LED10_Pin|LED11_Pin, GPIO_PIN_RESET);
+                          |LED8_Pin|LED9_Pin|LED10_Pin|LED11_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pins : LED0_Pin LED1_Pin LED2_Pin LED3_Pin
                            LED4_Pin LED5_Pin LED6_Pin LED7_Pin

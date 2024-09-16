@@ -12,6 +12,6 @@
 extern int counter;
 extern GPIO_TypeDef* segmentPorts[12];
 extern uint16_t segmentPins[12];
-void TurnOnEveryClock(int num);
+void Ex6_run();
 
 #endif /* INC_EX6_H_ */
