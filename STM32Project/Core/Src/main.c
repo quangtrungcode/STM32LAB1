@@ -19,10 +19,10 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include <main.h>
-#include "Ex3.h"
+
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "Ex3.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
