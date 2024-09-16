@@ -19,10 +19,10 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "Ex9.h"
+
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "Ex9.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -95,9 +95,9 @@ int main(void)
 
   while (1)
   {
-	  HAL_GPIO_WritePin(GPIOA, LED_PINS, RESET);
-	  if(counter>=12) counter=0;
-	  clearNumberOnClock(counter++);
+	 // HAL_GPIO_WritePin(GPIOA, LED_PINS, RESET);
+
+	  Ex9_run();
 	  	  HAL_Delay(1000);
     /* USER CODE END WHILE */
 

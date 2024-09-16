@@ -13,5 +13,5 @@ extern int counter;
 extern GPIO_TypeDef* segmentPorts[12];
 extern uint16_t segmentPins[12];
 void clearNumberOnClock(int num);
-
+void Ex9_run();
 #endif /* INC_EX9_H_ */
