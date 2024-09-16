@@ -14,3 +14,7 @@ uint16_t segmentPins[12]={LED0_Pin,LED1_Pin,LED2_Pin,LED3_Pin,LED4_Pin,LED5_Pin,
 void setNumberOnClock(int num) {
           	  HAL_GPIO_WritePin(segmentPorts[num], segmentPins[num], RESET);
         }
+void Ex8_run(){
+	if(counter>=12) counter=0;
+	setNumberOnClock(counter++);
+}
