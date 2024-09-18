@@ -5,9 +5,9 @@
  *      Author: ADMIN
  */
 #include "Ex10.h"
-int second=0;
-int minute=0;
-int hour=0;
+int second=55;
+int minute=59;
+int hour=3;
 //int counter=0;
 //GPIO_TypeDef* segmentPorts[12] = {LED0_GPIO_Port, LED1_GPIO_Port,LED2_GPIO_Port,LED3_GPIO_Port,LED4_GPIO_Port,
 //LED5_GPIO_Port,LED6_GPIO_Port,LED7_GPIO_Port,LED8_GPIO_Port,LED9_GPIO_Port,LED10_GPIO_Port,LED11_GPIO_Port};  // LED 1

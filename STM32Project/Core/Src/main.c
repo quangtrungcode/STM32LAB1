@@ -103,7 +103,7 @@ int main(void)
 	  //Ex8_run();
 	 // Ex9_run();
 	  Ex10_run();
-	  HAL_Delay(100);
+	  HAL_Delay(1000);
 
     /* USER CODE END WHILE */
 

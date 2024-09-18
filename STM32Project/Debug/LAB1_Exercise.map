@@ -2339,12 +2339,11 @@ LOAD e:/microprocessors-microcontrollers/stm32cubeide_1.7.0/stm32cubeide/plugins
  .text.setClockBegin
                 0x0000000008000450      0x11c ./Core/Src/Ex10.o
                 0x0000000008000450                setClockBegin
- .text.main     0x000000000800056c       0x1c ./Core/Src/main.o
+ .text.main     0x000000000800056c       0x1e ./Core/Src/main.o
                 0x000000000800056c                main
  .text.SystemClock_Config
-                0x0000000008000588       0x76 ./Core/Src/main.o
-                0x0000000008000588                SystemClock_Config
- *fill*         0x00000000080005fe        0x2 
+                0x000000000800058a       0x76 ./Core/Src/main.o
+                0x000000000800058a                SystemClock_Config
  .text.MX_GPIO_Init
                 0x0000000008000600       0x68 ./Core/Src/main.o
  .text.Error_Handler
@@ -2568,48 +2567,48 @@ LOAD e:/microprocessors-microcontrollers/stm32cubeide_1.7.0/stm32cubeide/plugins
                 0x00000000080015cc                . = ALIGN (0x4)
                 0x00000000080015cc                _sidata = LOADADDR (.data)
 
-.data           0x0000000020000000       0x54 load address 0x00000000080015cc
+.data           0x0000000020000000       0x60 load address 0x00000000080015cc
                 0x0000000020000000                . = ALIGN (0x4)
                 0x0000000020000000                _sdata = .
  *(.data)
  *(.data*)
+ .data.second   0x0000000020000000        0x4 ./Core/Src/Ex10.o
+                0x0000000020000000                second
+ .data.minute   0x0000000020000004        0x4 ./Core/Src/Ex10.o
+                0x0000000020000004                minute
+ .data.hour     0x0000000020000008        0x4 ./Core/Src/Ex10.o
+                0x0000000020000008                hour
  .data.segmentPorts
-                0x0000000020000000       0x30 ./Core/Src/Ex6.o
-                0x0000000020000000                segmentPorts
+                0x000000002000000c       0x30 ./Core/Src/Ex6.o
+                0x000000002000000c                segmentPorts
  .data.segmentPins
-                0x0000000020000030       0x18 ./Core/Src/Ex6.o
-                0x0000000020000030                segmentPins
+                0x000000002000003c       0x18 ./Core/Src/Ex6.o
+                0x000000002000003c                segmentPins
  .data.SystemCoreClock
-                0x0000000020000048        0x4 ./Core/Src/system_stm32f1xx.o
-                0x0000000020000048                SystemCoreClock
+                0x0000000020000054        0x4 ./Core/Src/system_stm32f1xx.o
+                0x0000000020000054                SystemCoreClock
  .data.uwTickPrio
-                0x000000002000004c        0x4 ./Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o
-                0x000000002000004c                uwTickPrio
+                0x0000000020000058        0x4 ./Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o
+                0x0000000020000058                uwTickPrio
  .data.uwTickFreq
-                0x0000000020000050        0x1 ./Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o
-                0x0000000020000050                uwTickFreq
+                0x000000002000005c        0x1 ./Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o
+                0x000000002000005c                uwTickFreq
  *(.RamFunc)
  *(.RamFunc*)
-                0x0000000020000054                . = ALIGN (0x4)
- *fill*         0x0000000020000051        0x3 
-                0x0000000020000054                _edata = .
+                0x0000000020000060                . = ALIGN (0x4)
+ *fill*         0x000000002000005d        0x3 
+                0x0000000020000060                _edata = .
 
-.igot.plt       0x0000000020000054        0x0 load address 0x0000000008001620
- .igot.plt      0x0000000020000054        0x0 e:/microprocessors-microcontrollers/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7-m/nofp/crtbegin.o
-                0x0000000020000054                . = ALIGN (0x4)
+.igot.plt       0x0000000020000060        0x0 load address 0x000000000800162c
+ .igot.plt      0x0000000020000060        0x0 e:/microprocessors-microcontrollers/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7-m/nofp/crtbegin.o
+                0x0000000020000060                . = ALIGN (0x4)
 
-.bss            0x0000000020000054       0x30 load address 0x0000000008001620
-                0x0000000020000054                _sbss = .
-                0x0000000020000054                __bss_start__ = _sbss
+.bss            0x0000000020000060       0x24 load address 0x000000000800162c
+                0x0000000020000060                _sbss = .
+                0x0000000020000060                __bss_start__ = _sbss
  *(.bss)
- .bss           0x0000000020000054       0x1c e:/microprocessors-microcontrollers/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7-m/nofp/crtbegin.o
+ .bss           0x0000000020000060       0x1c e:/microprocessors-microcontrollers/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7-m/nofp/crtbegin.o
  *(.bss*)
- .bss.second    0x0000000020000070        0x4 ./Core/Src/Ex10.o
-                0x0000000020000070                second
- .bss.minute    0x0000000020000074        0x4 ./Core/Src/Ex10.o
-                0x0000000020000074                minute
- .bss.hour      0x0000000020000078        0x4 ./Core/Src/Ex10.o
-                0x0000000020000078                hour
  .bss.counter   0x000000002000007c        0x4 ./Core/Src/Ex6.o
                 0x000000002000007c                counter
  *(COMMON)
@@ -2620,7 +2619,7 @@ LOAD e:/microprocessors-microcontrollers/stm32cubeide_1.7.0/stm32cubeide/plugins
                 0x0000000020000084                __bss_end__ = _ebss
 
 ._user_heap_stack
-                0x0000000020000084      0x604 load address 0x0000000008001620
+                0x0000000020000084      0x604 load address 0x000000000800162c
                 0x0000000020000088                . = ALIGN (0x8)
  *fill*         0x0000000020000084        0x4 
                 [!provide]                        PROVIDE (end = .)
