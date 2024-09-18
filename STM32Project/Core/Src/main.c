@@ -95,14 +95,14 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  setClockBegin( hour, minute, second);
+ // setClockBegin( hour, minute, second);
   while (1)
   {
-	  Ex6_run();
+	 // Ex6_run();
 	 // Ex7_run();
 	  //Ex8_run();
 	 // Ex9_run();
-	//  Ex10_run();
+	  Ex10_run();
 	  HAL_Delay(100);
 
     /* USER CODE END WHILE */
