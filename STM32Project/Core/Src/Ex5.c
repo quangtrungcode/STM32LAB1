@@ -41,43 +41,7 @@ GPIO_TypeDef* segmentPorts[2][NUM_SEGMENTS] = {
         }
     }
   void Ex5_run(){
-//  	  settrafficlight1(LED_RED1_GPIO_Port, LED_RED1_Pin, LED_YELLOW1_GPIO_Port, LED_YELLOW1_Pin, LED_GREEN1_GPIO_Port, LED_GREEN1_Pin);
-//  	  settrafficlight1(LED_GREEN2_GPIO_Port, LED_GREEN2_Pin, LED_RED2_GPIO_Port, LED_RED2_Pin, LED_YELLOW2_GPIO_Port, LED_YELLOW2_Pin) ;
-//        for(int i=5;i>=2;i--){
-//      	  display7SEG(0, counterred--);
-//      	  display7SEG(1, countergreen--);
-//      	  HAL_Delay(1000);
-//        }
-//        settrafficlight1(LED_YELLOW2_GPIO_Port, LED_YELLOW2_Pin, LED_GREEN2_GPIO_Port, LED_GREEN2_Pin, LED_RED2_GPIO_Port, LED_RED2_Pin);
-//  	  for(int i=2;i>=0;i--){
-//  		  display7SEG(0, counterred--);
-//  		  display7SEG(1, counteryellow--);
-//  		  HAL_Delay(1000);
-//  		  if(i<=0){
-//  			  counterred=6;
-//  			  counteryellow=2;
-//  			  countergreen=3;
-//  		  }
-//  	  }
-//  	  settrafficlight1(LED_RED2_GPIO_Port, LED_RED2_Pin, LED_YELLOW2_GPIO_Port, LED_YELLOW2_Pin, LED_GREEN2_GPIO_Port, LED_GREEN2_Pin);
-//  	  settrafficlight1(LED_GREEN1_GPIO_Port, LED_GREEN1_Pin, LED_RED1_GPIO_Port, LED_RED1_Pin, LED_YELLOW1_GPIO_Port, LED_YELLOW1_Pin);
-//  	  for(int i=5;i>=2;i--){
-//  	      	  display7SEG(1, counterred--);
-//  	      	  display7SEG(0, countergreen--);
-//  	      	HAL_Delay(1000);
-//  	  }
-//  	  settrafficlight1(LED_YELLOW1_GPIO_Port, LED_YELLOW1_Pin, LED_GREEN1_GPIO_Port, LED_GREEN1_Pin, LED_RED1_GPIO_Port, LED_RED1_Pin);
-//  	  for(int i=2;i>=0;i--){
-//  		  	  display7SEG(1, counterred--);
-//  	  		  display7SEG(0, counteryellow--);
-//  	  		HAL_Delay(1000);
-//  	  		if(i<=0){
-//  	  			counterred=6;
-//  	  			counteryellow=2;
-//  	  			countergreen=3;
-//  	  		}
-//  	  }
-	//  HAL_GPIO_WritePin(GPIOA, LED_RED_Pin|LED_YELLOW_Pin|LED_GREEN_Pin, SET);
+	  HAL_GPIO_WritePin(GPIOA, LED_RED_Pin|LED_YELLOW_Pin|LED_GREEN_Pin, SET);
 	  if(counter>=14) counter=0;
 	  counter++;
 	  if(counter<=4){
