@@ -12,7 +12,7 @@
 extern int second;
 extern int minute;
 extern int hour;
-extern const int counter;
+extern int counter;
 extern GPIO_TypeDef* segmentPorts[12];
 extern uint16_t segmentPins[12];
 void setNumberOnClock(int num);
