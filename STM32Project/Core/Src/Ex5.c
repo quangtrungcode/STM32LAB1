@@ -8,7 +8,6 @@
   int counterred=6;
   int counteryellow=2;
   int countergreen=3;
-  //int counter=0;
 GPIO_TypeDef* segmentPorts[2][NUM_SEGMENTS] = {
       {a1_GPIO_Port, b1_GPIO_Port, c1_GPIO_Port, d1_GPIO_Port, e1_GPIO_Port, f1_GPIO_Port, g1_GPIO_Port},
       {a2_GPIO_Port, b2_GPIO_Port, c2_GPIO_Port, d2_GPIO_Port, e2_GPIO_Port, f2_GPIO_Port, g2_GPIO_Port}
@@ -29,11 +28,6 @@ GPIO_TypeDef* segmentPorts[2][NUM_SEGMENTS] = {
         0b11111110,
         0b11110110
     };
-//  void settrafficlight1(GPIO_TypeDef* LED_GIPO_Port, uint16_t LED_Pin,GPIO_TypeDef* LED_1GIPO_Port, uint16_t LED_1Pin,GPIO_TypeDef* LED_2GIPO_Port, uint16_t LED_2Pin){
-//    	  HAL_GPIO_WritePin(LED_GIPO_Port, LED_Pin, SET);
-//    	  HAL_GPIO_WritePin(LED_1GIPO_Port, LED_1Pin, RESET);
-//    	  HAL_GPIO_WritePin(LED_2GIPO_Port, LED_2Pin, RESET);
-//      }
   void display7SEG1(int ledNum, int num) {
         for (int i = 0; i < NUM_SEGMENTS; i++) {
             HAL_GPIO_WritePin(segmentPorts[ledNum][i], segmentPins[ledNum][i],
