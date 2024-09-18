@@ -100,7 +100,7 @@ int main(void)
   while (1)
   {
       Ex1_run();
-      HAL_Delay(2000);
+      HAL_Delay(1000);
 
 	    /* Infinite loop */
 
