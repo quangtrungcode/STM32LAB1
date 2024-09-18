@@ -1,0 +1,50 @@
+/*
+ * Ex10.c
+ *
+ *  Created on: Sep 18, 2024
+ *      Author: ADMIN
+ */
+#include "Ex10.h"
+int second=0;
+int minute=0;
+int hour=0;
+const int counter=0;
+GPIO_TypeDef* segmentPorts[12] = {LED0_GPIO_Port, LED1_GPIO_Port,LED2_GPIO_Port,LED3_GPIO_Port,LED4_GPIO_Port,
+LED5_GPIO_Port,LED6_GPIO_Port,LED7_GPIO_Port,LED8_GPIO_Port,LED9_GPIO_Port,LED10_GPIO_Port,LED11_GPIO_Port};  // LED 1
+uint16_t segmentPins[12]={LED0_Pin,LED1_Pin,LED2_Pin,LED3_Pin
+  ,LED4_Pin,LED5_Pin,LED6_Pin,LED7_Pin,LED8_Pin,LED9_Pin,LED10_Pin,LED11_Pin};
+void setNumberOnClock(int num){
+        	HAL_GPIO_WritePin(segmentPorts[num], segmentPins[num], RESET);
+        }
+void clearNumberOnClock(int num){
+        	HAL_GPIO_WritePin(segmentPorts[num], segmentPins[num], SET);
+        }
+void Ex10_run(){
+	if(counter>=0) setClockBegin( hour, minute, second);
+	     second++;
+		  	  if (second >= 60) {
+		  	          second = 0;
+		  	          minute++;
+		  	          setNumberOnClock((minute / 5+12)%12);
+		           if(((minute / 5+11)%12)!=hour&&((minute / 5+11)%12)!=second) clearNumberOnClock(((minute / 5+11)%12));
+		  	  if (minute >= 60) {
+		  	              minute = 0;
+		  	              hour++;
+		  	              setNumberOnClock((hour+12)%12);
+		  	              if((hour+11)%12!=0) clearNumberOnClock((hour+11)%12);
+		  	              if (hour >= 12) {
+		  	                  hour = 0;
+		  	              }
+		  	          }
+		  	      }
+		  	      setNumberOnClock((second / 5+12)%12);
+		  if(((second / 5+11)%12)!=hour&&((second / 5+11)%12)!=(minute/5+12)%12) clearNumberOnClock(((second / 5+11)%12));
+}
+void setClockBegin(int hour,int minute,int second){
+        	HAL_GPIO_WritePin(segmentPorts[hour], segmentPins[hour], RESET);
+        if(minute%5==0)	HAL_GPIO_WritePin(segmentPorts[minute/5], segmentPins[minute/5], RESET);
+        if(second%5==0)	HAL_GPIO_WritePin(segmentPorts[second/5], segmentPins[second/5], RESET);
+        HAL_GPIO_WritePin(GPIOA, LED_PINS & ~ (segmentPins[hour]|segmentPins[minute/5]|segmentPins[second/5]), SET);
+     //   HAL_Delay(2000);
+        }
+
