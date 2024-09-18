@@ -77,6 +77,7 @@ GPIO_TypeDef* segmentPorts[2][NUM_SEGMENTS] = {
 //  	  			countergreen=3;
 //  	  		}
 //  	  }
+	//  HAL_GPIO_WritePin(GPIOA, LED_RED_Pin|LED_YELLOW_Pin|LED_GREEN_Pin, SET);
 	  if(counter>=14) counter=0;
 	  counter++;
 	  if(counter<=4){

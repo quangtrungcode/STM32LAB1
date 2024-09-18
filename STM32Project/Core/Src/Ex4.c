@@ -28,6 +28,9 @@ void display7SEG(int num) {
       HAL_GPIO_WritePin(g1_GPIO_Port, g1_Pin, (segmentMap[num] & 0b00000010) ? GPIO_PIN_RESET : GPIO_PIN_SET);
   }
 void Ex4_run(){
+//	 HAL_GPIO_WritePin(GPIOA, LED_RED_Pin|LED_YELLOW_Pin|LED_GREEN_Pin, SET);
+//	 HAL_GPIO_WritePin(GPIOB, a2_Pin|b2_Pin|c2_Pin|d2_Pin|e2_Pin|f2_Pin|g2_Pin, SET);
+//	 HAL_GPIO_WritePin(GPIOB, a1_Pin|b1_Pin|c1_Pin|d1_Pin|e1_Pin|f1_Pin|g2_Pin, SET);
 	if(counter>=10) counter=0;
 	display7SEG(counter++);
 }
