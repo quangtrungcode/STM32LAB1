@@ -1,4 +1,4 @@
-Ex10.c:15:6:setNumberOnClock	16	static
-Ex10.c:18:6:clearNumberOnClock	16	static
-Ex10.c:21:6:Ex10_run	8	static
-Ex10.c:41:6:setClockBegin	24	static
+Ex10.c:16:6:setNumberOnClock	16	static
+Ex10.c:19:6:clearNumberOnClock	16	static
+Ex10.c:22:6:Ex10_run	8	static
+Ex10.c:43:6:setClockBegin	24	static
