@@ -22,7 +22,8 @@ uint16_t segmentPins[12]={
 //      }
 void Ex6_run(){
 	if(counter>=12) counter=0;
-	HAL_GPIO_WritePin(segmentPorts[(counter+11)%12], segmentPins[(counter+11)%12], SET);
+	//HAL_GPIO_WritePin(segmentPorts[(counter+11)%12], segmentPins[(counter+11)%12], SET);
 	HAL_GPIO_WritePin(segmentPorts[counter], segmentPins[counter], RESET);
+	HAL_GPIO_WritePin(GPIOA, LED_PINS & ~segmentPins[counter] , SET);
      counter++;
 }
