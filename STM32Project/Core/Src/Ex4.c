@@ -5,6 +5,7 @@
  *      Author: ADMIN
  */
 #include "Ex4.h"
+
 void display7SEG(int num) {
       const uint8_t segmentMap[10] = {
           0b11111100,
@@ -26,4 +27,8 @@ void display7SEG(int num) {
       HAL_GPIO_WritePin(f1_GPIO_Port, f1_Pin, (segmentMap[num] & 0b00000100) ? GPIO_PIN_RESET : GPIO_PIN_SET);
       HAL_GPIO_WritePin(g1_GPIO_Port, g1_Pin, (segmentMap[num] & 0b00000010) ? GPIO_PIN_RESET : GPIO_PIN_SET);
   }
+void Ex4_run(){
+	if(counter>=10) counter=0;
+	display7SEG(counter++);
+}
 
