@@ -8,4 +8,6 @@
 void clearAllClock(){
 	  HAL_GPIO_WritePin(GPIOA, LED_PINS, SET);
   }
-
+void Ex7_run(){
+	clearAllClock();
+}

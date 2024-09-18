@@ -97,12 +97,12 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  Ex6_run();
-	  Ex7_run();
-	  Ex8_run();
-	  Ex9_run();
-	  Ex10_run();
-	  HAL_Delay(1000);
+	//  Ex6_run();
+	 // Ex7_run();
+	 // Ex8_run();
+	 // Ex9_run();
+	 // Ex10_run();
+	 // HAL_Delay(1000);
 
     /* USER CODE END WHILE */
 
