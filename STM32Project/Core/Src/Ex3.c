@@ -5,6 +5,7 @@
  *      Author: ADMIN
  */
 #include "Ex3.h"
+#include "Ex1.h"
 void settrafficlight1(GPIO_TypeDef* LED_GIPO_Port, uint16_t LED_Pin,GPIO_TypeDef* LED_1GIPO_Port, uint16_t LED_1Pin,GPIO_TypeDef* LED_2GIPO_Port, uint16_t LED_2Pin)
   {
 	  HAL_GPIO_WritePin(LED_GIPO_Port, LED_Pin, SET);

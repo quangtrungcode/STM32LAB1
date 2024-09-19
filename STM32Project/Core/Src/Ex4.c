@@ -5,7 +5,7 @@
  *      Author: ADMIN
  */
 #include "Ex4.h"
-
+#include "Ex1.h"
 void display7SEG(int num) {
       const uint8_t segmentMap[10] = {
           0b11111100,

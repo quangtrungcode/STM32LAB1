@@ -5,6 +5,8 @@
  *      Author: ADMIN
  */
 #include "Ex5.h"
+#include "Ex1.h"
+#include "Ex3.h"
   int counterred=6;
   int counteryellow=2;
   int countergreen=3;
