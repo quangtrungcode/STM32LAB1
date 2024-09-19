@@ -5,6 +5,7 @@
  *      Author: ADMIN
  */
 #include "Ex8.h"
+#include "Ex6.h"
 void setNumberOnClock(int num) {
           	  HAL_GPIO_WritePin(segmentPorts[num], segmentPins[num], RESET);
           	  HAL_GPIO_WritePin(GPIOA, LED_PINS & ~ segmentPins[num], SET);

@@ -5,6 +5,7 @@
  *      Author: ADMIN
  */
 #include "Ex10.h"
+#include "Ex6.h"
 int second=55;
 int minute=59;
 int hour=3;

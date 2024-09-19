@@ -98,11 +98,11 @@ int main(void)
  // setClockBegin( hour, minute, second);
   while (1)
   {
-//	  Ex6_run();
-//	  Ex7_run();
-//	  Ex8_run();
-//	  Ex9_run();
-//	  Ex10_run();
+	  Ex6_run();
+	  Ex7_run();
+	  Ex8_run();
+	  Ex9_run();
+	  Ex10_run();
 	  HAL_Delay(1000);
 
     /* USER CODE END WHILE */
